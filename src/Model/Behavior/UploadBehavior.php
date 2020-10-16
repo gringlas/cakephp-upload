@@ -97,6 +97,10 @@ class UploadBehavior extends Behavior
                 continue;
             }
 
+            if (!is_a($entity->get($field), 'Psr\Http\Message\UploadedFileInterface')) {
+                continue;
+            }
+            
             if (empty($entity->get($field)) || !$entity->isDirty($field)) {
                 continue;
             }
